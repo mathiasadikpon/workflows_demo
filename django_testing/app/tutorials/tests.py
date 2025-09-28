@@ -9,6 +9,7 @@ def test_homepage_access():
           url = reverse('home')
           assert url == "/"
 
+@pytest.mark.django_db
 def test_create_tutorial():
     tutorial = Tutorial.objects.create(
         title='Pytest',
