@@ -28,3 +28,11 @@ def new_tutorial(db):
         published=True
     )
     return tutorial
+
+def test_search_tutorials(new_tutorial):
+    assert Tutorial.objects.filter(title='Pytest').exists()
+
+def test_update_tutorial(new_tutorial):
+    new_tutorial.title = 'Pytest-Django'
+    new_tutorial.save()
+    assert Tutorial.objects.filter(title='Pytest-Django').exists()
